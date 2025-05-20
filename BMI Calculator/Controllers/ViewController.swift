@@ -1,3 +1,4 @@
+
 import UIKit
 
 class ViewController: UIViewController {
@@ -6,7 +7,6 @@ class ViewController: UIViewController {
   @IBOutlet var weightSlider: UISlider!
   @IBOutlet var heightLabel: UILabel!
   @IBOutlet var weightLabel: UILabel!
-  
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -25,4 +25,10 @@ class ViewController: UIViewController {
     
   }
   
+  @IBAction func calculateButtonTapped(_ sender: UIButton) {
+    
+    print(weightSlider.value / pow(heightSlider.value, heightSlider.value))
+    
+    
+  }
 }
