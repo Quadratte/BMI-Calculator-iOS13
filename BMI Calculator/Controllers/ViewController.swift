@@ -1,20 +1,28 @@
-//
-//  ViewController.swift
-//  BMI Calculator
-//
-//  Created by Angela Yu on 21/08/2019.
-//  Copyright © 2019 Angela Yu. All rights reserved.
-//
-
 import UIKit
 
 class ViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
-
-
+  
+  @IBOutlet var heightSlider: UISlider!
+  @IBOutlet var weightSlider: UISlider!
+  @IBOutlet var heightLabel: UILabel!
+  @IBOutlet var weightLabel: UILabel!
+  
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+  }
+  
+  @IBAction func adjustHeight(_ sender: UISlider) {
+    let height = String(format: "%.2f", sender.value)
+    heightLabel.text = "\(height)m"
+  }
+  
+  @IBAction func adjustWeight(_ sender: UISlider) {
+    
+    let weight = String(format: "%.1f", sender.value)
+    weightLabel.text = "\(weight)kg"
+    
+  }
+  
 }
-
