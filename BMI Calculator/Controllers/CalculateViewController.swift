@@ -1,7 +1,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class CalculateViewController: UIViewController {
   
   @IBOutlet var heightSlider: UISlider!
   @IBOutlet var weightSlider: UISlider!
@@ -27,8 +27,17 @@ class ViewController: UIViewController {
   
   @IBAction func calculateButtonTapped(_ sender: UIButton) {
     
-    print(weightSlider.value / pow(heightSlider.value, heightSlider.value))
+    let bmi = String(weightSlider.value / pow(heightSlider.value, heightSlider.value))
     
+    self.performSegue(withIdentifier: "goToResult", sender: self)
+  }
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "goToResult" {
+      let destinationVC = segue.destination as! ResultViewController
+      destinationVC.bmiValue = "0.0"
+      
+    }
     
   }
 }
