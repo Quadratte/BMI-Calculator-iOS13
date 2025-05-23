@@ -3,7 +3,6 @@ import UIKit
 struct CalculatorBrain {
   
   var bmi: BMI?
-  var advice: String?
   
   func getBMIValue() -> String {
     let convertedBMI = bmi?.value ?? 0.0

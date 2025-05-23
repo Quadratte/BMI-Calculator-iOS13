@@ -9,10 +9,6 @@ class CalculateViewController: UIViewController {
   @IBOutlet var heightLabel: UILabel!
   @IBOutlet var weightLabel: UILabel!
   
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    
-  }
   
   @IBAction func adjustHeight(_ sender: UISlider) {
     let height = String(format: "%.2f", sender.value)
@@ -34,10 +30,10 @@ class CalculateViewController: UIViewController {
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "goToResult" {
-      let destinationVC = segue.destination as! ResultViewController 
-      destinationVC.bmiValue = calculatorBrain.getBMIValue()
-      destinationVC.advice = calculatorBrain.getAdvice()
-      destinationVC.color = calculatorBrain.getColor()
+      let destinationVC = segue.destination as? ResultViewController
+      destinationVC?.bmiValue = calculatorBrain.getBMIValue()
+      destinationVC?.advice = calculatorBrain.getAdvice()
+      destinationVC?.color = calculatorBrain.getColor()
     }
   }
 }
